@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using DatingApp.API.Data;
+using DatingApp.API.Interfaces;
+using DatingApp.API.Repository;
 
 namespace DatingApp.API
 {
@@ -30,6 +32,7 @@ namespace DatingApp.API
             services.AddDbContext<DataContext>(connDb => connDb.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddCors();
+            services.AddScoped<IAuthRepository,AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
