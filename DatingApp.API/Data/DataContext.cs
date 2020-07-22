@@ -1,3 +1,4 @@
+using DatingApp.API.Model;
 using DatingApp.API.Properties.Model;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +11,6 @@ namespace DatingApp.API.Data
         {
 
         }
-        public DbSet<Value> Values { get; set; }
     
      protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -19,5 +19,9 @@ namespace DatingApp.API.Data
          optionsBuilder.UseSqlite("Data Source=datingapp.db");
         }
     }
+
+        public DbSet<Value> Values { get; set; }
+        public DbSet<User> Users { get; set; }
+
     }
 }
